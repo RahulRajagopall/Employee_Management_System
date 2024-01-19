@@ -1,0 +1,63 @@
+@{
+    ViewData["Title"] = "Options";
+    Layout="_Login";
+}
+<!DOCTYPE html>
+<html style="height: 100%;">
+<head>
+<style>
+.vertical-menu {
+  width: 200px;
+  margin-left: -5.2%;
+  margin-top: -1.95%;
+  background-color: rgb(29, 28, 28);  
+}
+
+.vertical-menu a {
+  background-color: rgb(29, 28, 28);
+  color: white;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+  text-align: center;
+  
+}
+
+.vertical-menu a:hover {
+  background-color:  #04AA6D;
+}
+
+.vertical-menu a.active {
+  background-color: #04AA6D;
+  color: white;
+  margin-top: 290px;
+}
+body {
+    background-image: url("https://wallpaperaccess.com/full/3342261.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+
+</style>
+</head>
+<body>
+<div class="vertical-menu">
+    <a asp-controller="Admin" asp-action="Index">View Employee List</a>  
+    <a asp-controller="Admin" asp-action="Registration">Register New Employee</a>
+    <a asp-controller="Admin" asp-action="Delete">Delete Employee</a>
+    <a asp-controller="Admin" asp-action="Search">Search Employee</a>    
+    <a asp-controller="Admin" asp-action="Update">Update Employee</a> 
+    <a asp-controller="Admin" asp-action="Task">Assign Task</a> 
+    <a asp-controller="Admin" asp-action="Mail">Contact System Admin</a> 
+    <a asp-controller="Home" asp-action="Index" class="active">LogOut</a> 
+</div>
+</body>
+</html>
+<div style="max-height: 50px;width: 500px;height: 50px; border: 0.01px solid cyan;margin-top: -58%;margin-left: 82%;">
+<p>@TempData["Cookies"]</p>
+</div>
+<img style="margin-top: 2.7%;margin-left: 37%;" src="../images/new.png" width="700px" height="500px"/> 
+<img style="margin-top: -95%;margin-left: 14%;" src="../images/welcome5.png" width="500px" height="400px"/> 

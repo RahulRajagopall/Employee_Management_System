@@ -1,0 +1,99 @@
+@model Employee
+@{
+    ViewData["Title"] = "Login";
+}
+<head>
+    <style>
+        form{
+            margin-left: 5em;
+            width: 20em;
+        }
+        button{
+            display: block;
+            margin-left: 9em;
+        }
+        .login{
+            width: 20em;
+            height: 20em;
+            background-color: black;
+            border-color: black;
+            border-radius: 3em;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            margin-top:2em;
+            margin-left:auto;
+            margin-right:auto;
+            
+        }
+        .form-field{
+            margin: 1em 1.5em;
+        }
+            button 
+        {
+            display: block;
+            margin-left: 9em;
+            background-color: white;
+            height: 2em;
+            width: 5em;
+            border-radius: 1em;
+            margin-left: 20%;
+            margin-top: 10%;
+            background: whitesmoke;
+            color: black;
+            cursor: pointer;
+            margin-left: 25%;
+            margin-top: 5%;
+        }
+        button:hover 
+        {
+            background: rgb(68, 149, 204);
+            color: black;
+        }      
+        .div-column{
+            display:flex;
+            flex-direction: row;
+            align-content:center ;            
+            color:white;
+        }
+        
+    </style>
+        <script type="text/javascript">
+        window.history.forward();
+        function noBack()
+        {
+            window.history.forward();
+        }
+        </script>
+</head>
+<body>
+     <div class="login">
+            <div><h1 class="text-white"> Sign In</h1></div>
+            <div>
+            <form method="post">
+                <div class="form-field">
+                    <input  name="UserId"  placeholder="Login ID" pattern="^[A-Z0-9]*$" title="ID must contain only numbers and uppercases" required/>
+                </div> 
+                <div class="form-field">
+                    <input type="password" name="Password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[#$@@!%&*?]).{8,}" title="Must contain atleast One Number,One Uppercase,One Lowercase and One Special Character,and have atleast 8 or more characters" required/>
+                </div>  
+                 <div class="form-field">
+                <div style="max-height: 40px;width: 300px;height: 40px; border: 0.01px solid transparent;margin-top: -5px;margin-left: -3px;color:red;></div>
+                <p style="margin-left: 170px;color:red;">@ViewBag.InvalidUserMessage</p>
+                <p style="margin-top:-14px;margin-left: -10px;color:rgb(28, 207, 28);">@ViewBag.Success</p>
+                </div>         
+                </div>
+                <div style="margin-top: -26px;">
+                <button  type="submit">Submit</button>
+                </div>
+                <br>
+                <div style="margin-top: -2px;" >
+                <a style="margin-left: -1%;color: white" class="text" asp-controller="Home" asp-action="ForgotPassword">Forgot Password?</a>
+                <a style="margin-left: 15%;color:white;" asp-action="Index">Go Back?</a>
+                </div>
+            </form>    
+                    
+            </div>   
+    </div>    
+</body>

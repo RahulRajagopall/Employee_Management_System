@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>   
+    <title>@ViewData["Title"] - ems</title> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ems.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"  asp-append-version="true"/>
+<style>
+.dropdown {
+  float: right;
+}
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #070707;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  float: none;
+  color: rgb(255, 246, 246);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.dropdown-content a:hover {
+  background-color:#04AA6D;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+</head>
+<body style="height: 100%;">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-white bg-dark border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a style="color: aqua;" class="navbar-brand" asp-area="" asp-controller="User" asp-action="Index"><img src="data:image/png;base64,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"width="20px" height="20px" style="border-radius: 50%;"> EMS</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                         <li class="nav-item">
+                            <a style="margin-left: 0px" class="nav-link text-white" asp-area="" asp-controller="User" asp-action="Privacy" style="font-size: smaller;"><img src="https://cdn-icons-png.flaticon.com/512/1388/1388939.png" width="17px" height="17px"></img>Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="margin-top: 0px;" class="nav-link text-white" asp-area="" asp-controller="User" asp-action="About" style="font-size: smaller;"><img src="https://cdn-icons-png.flaticon.com/512/3133/3133802.png" width="21px" height="21px"></img>About US</a>
+                        </li>                      
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <button style="margin-right: 95px;margin-top: -15px;" class="dropbtn"><img src="https://cdn-icons-png.flaticon.com/512/1634/1634155.png" width="21px" height="21px"></img>
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a asp-controller="User" asp-action="Profile">Profile</a>
+                        <a asp-controller="User" asp-action="ViewTask">View Task</a>
+                        <a asp-controller="User" asp-action="Mail">Mail To Admin</a>
+                        <a asp-controller="User" asp-action="Complaint">Complaints</a>
+                        <a asp-controller="User" asp-action="LogOut">Logout</a>
+                    </div>
+                </div> 
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,60 @@
+@model IEnumerable<TaskBase>
+@{
+    ViewData["Title"]="TaskResult";
+    Layout="_Login";
+}
+<style>
+body{
+    overflow: hidden;
+
+}
+        .b1
+        {
+            display: block;
+            margin-left: 9em;
+            background-color: white;
+            width: 100px;
+            height: 35px;
+            border-radius: 1em;
+            background: rgb(34, 33, 33);
+            color: rgb(247, 247, 247);
+            cursor: pointer;
+            margin-left: 0%;
+            margin-top:-16px;
+        }
+        .b1:hover
+        {
+            background: rgb(82, 21, 139);
+            color:white;
+        }
+
+</style>
+<h1>Task</h1><img style="margin-top: -8%;margin-left: 8%;" src="https://cdn-icons-png.flaticon.com/512/1134/1134103.png"  width="35px" height="35px"/>
+<table style="background-color: whitesmoke;"width="30%" border="2">
+    <thead>
+        <tr>
+            <th>Task</th>
+            <th>DeadLine</th>
+        </tr>
+    </thead>
+    <tbody> 
+        @foreach (TaskBase item in Model)
+            {
+            <tr>
+                <td>@item.Task</td>
+                <td>@item.DeadLine</td>
+                <form asp-controller="Admin" asp-action="deletetask" asp-action="post" asp-route-Task="@item.Task"> 
+                <td><button type="submit"><img src="https://cdn-icons-png.flaticon.com/512/3096/3096687.png" width="25px" height="25px"></button></td>
+                </form> 
+
+            </tr>
+            }
+    </tbody>
+</table>
+<br>
+<form method="get" asp-controller="Admin" asp-action="Task">
+<button class="b1" type="submit">Go Back</button>
+</form>
+
+
+

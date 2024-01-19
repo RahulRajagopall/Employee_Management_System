@@ -1,0 +1,9 @@
+@model Employee
+@{
+    ViewData["Title"]="Thanks";
+    Layout="_Login";
+}
+<h2 style=color:black> Congratulations</h2>
+<h3 style=color:black>@Model.EmployeeName, Has successfully been Registered</h3>
+<br>
+<a asp-action="Index">View all Employees</a>

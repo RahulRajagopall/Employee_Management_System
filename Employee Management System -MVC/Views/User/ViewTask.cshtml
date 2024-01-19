@@ -1,0 +1,86 @@
+@model IEnumerable<TaskBase>
+@{
+    ViewData["Title"]="ViewTask";
+    Layout="_LoginUser";
+}
+<style>
+        body 
+        {
+            background-image: url("https://img.freepik.com/free-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-63483.jpg?w=900&t=st=1679307462~exp=1679308062~hmac=d439f6280f78604b3834f65357b10c2f7190fc7ded95a62ef720aa7e6f459ac0");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow: hidden;
+        }
+        .b2
+        {
+            display: block;
+            margin-left: 9em;
+            background-color: white;
+            height: 2em;
+            width: 10em;
+            border-radius: 1em;
+            background: rgb(34, 33, 33);
+            color: rgb(247, 247, 247);
+            cursor: pointer;
+        }
+        .b2:hover
+        {
+            background: rgb(68, 149, 204);
+            color: black;
+        }
+        
+        .b1
+        {
+            display: block;
+            margin-left: 9em;
+            background-color: white;
+            height: 2em;
+            width: 6em;
+            border-radius: 1em;
+            background: rgb(34, 33, 33);
+            color: rgb(247, 247, 247);
+            cursor: pointer;
+            margin-left: 2%;
+            margin-top: -2.8%;
+        }
+        .b1:hover
+        {
+            background: rgb(68, 149, 204);
+            color: black;
+        } 
+</style>
+<h1 style="margin-top: 3%;">Task</h1><img style="margin-top: -8%;margin-left: 8%;" src="https://cdn-icons-png.flaticon.com/512/8474/8474695.png"width ="35px" height="35px" >
+
+<table  style="background-color: whitesmoke;margin-top: -1%;" width="30%" border="2">
+    <thead>
+        <tr>
+            <th>Task</th>
+            <th>Dead Line</th>
+        </tr>
+    </thead>
+    <tbody> 
+        @foreach (TaskBase item in Model)
+            {
+            <tr>
+                <td>@item.Task</td>
+                <td>@item.DeadLine</td>             
+            </tr> 
+            }
+    </tbody>
+</table>
+<br>
+<button class="b2" style="margin-top: -6px;margin-left: 14%;" id="redirect-btn">Upload Files</button>
+<script>
+    function redirectToGoogleDriveFolder() {
+        window.location.href = "https://drive.google.com/drive/folders/18lVC3uhflllMgs7KoPgHGoi60xIt8Mw1";
+    }
+    var redirectButton = document.getElementById("redirect-btn");
+    redirectButton.addEventListener("click", redirectToGoogleDriveFolder);
+</script>
+
+
+<form method="get" asp-controller="User" asp-action="Index">
+<button class="b1" type="submit">Go Back</button>
+</form>
+<img style="margin-top: -22%;margin-left: 50%;" src="../images/task.png" width="500px" height="500px"/> 

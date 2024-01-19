@@ -1,0 +1,100 @@
+@model Employee
+@{
+    ViewData["Title"]="SearchResult";
+    Layout="_Login";
+}
+<h1>Employee Details</h1>
+<br>
+<style>
+body {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+.b1
+{
+    display: block;
+    margin-left: 9em;
+    background-color: white;
+    height: 2em;
+    width: 6em;
+    border-radius: 1em;
+    margin-left: 20%;
+    margin-top: 10%;
+    background: rgb(34, 33, 33);
+    color: rgb(247, 247, 247);
+    cursor: pointer;
+    margin-left: 0%;
+    margin-top: 1%;
+}
+.b1:hover
+{
+    background: rgb(82, 21, 139);
+    color: white;
+}
+</style>
+<table style="background-color: whitesmoke;" width="35%"  border="2">  
+<body>
+        <tr>
+            <td><strong>Employee ID  </strong></td>
+            <td>@Model.EmployeeID </td>
+        </tr>
+        <tr>
+            <td><strong> Employee Name &emsp;&emsp;&emsp;</strong></td>
+            <td>@Model.EmployeeName</td>
+        </tr>
+        <tr>
+            <td><strong>Age </strong></td>
+            <td>@Model.Age</td>
+        </tr>
+        <tr>
+            <td><strong>Date Of Birth </strong></td>
+            <td>@Model.DateOfBirth</td>
+        </tr> 
+        <tr>
+            <td><strong>Gender </strong></td>
+            <td>@Model.Gender</td>
+        </tr>
+        <tr>
+            <td><strong>Salary </strong></td>
+            <td>@Model.Salary</td>
+        </tr>
+        <tr>
+            <td><strong>Department </strong></td>
+            <td>@Model.Department</td>
+        </tr>
+        <tr>
+            <td><strong>Email </strong></td>
+            <td>@Model.Email</td>
+        </tr>
+        <tr>
+            <td><strong>Password </strong></td>
+            <td>@Model.Password</td>
+        </tr>
+         <tr>
+            <td><strong>Mobile Number </strong></td>
+            <td>@Model.MobileNumber</td>
+        </tr>
+          <tr>
+            <td><strong>Nationality </strong></td>
+            <td>@Model.Nationality</td>
+        </tr>
+          <tr>
+            <td><strong>State </strong></td>
+            <td>@Model.State</td>
+        </tr>
+        <tr>
+            <td><strong>Date Of Birth </strong></td>
+            <td>@Model.DateOfBirth</td>
+        </tr>     
+          <tr>
+            <td><strong>Account Number</strong></td>
+            <td>@Model.AccountNo</td>
+        </tr>
+</body>
+</table>
+<form method="get" asp-controller="Admin" asp-action="Search">
+<button class="b1" type="submit">Go Back</button>
+</form>
+<img src=@Model.ProfilePIC style="border-style: solid;border-radius: 50%; margin-top: -41%;margin-left: 50%;width:450px; height:450px;">

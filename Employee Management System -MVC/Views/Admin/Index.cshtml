@@ -1,0 +1,71 @@
+
+@model IEnumerable<Employee>
+    @{
+        ViewData["Title"] = "Index";
+        Layout="_Login";
+    }
+    <style>
+        .b1
+        {
+            display: block;
+            margin-left: 9em;
+            background-color: white;
+            height: 2em;
+            width: 10em;
+            border-radius: 1em;
+            background: rgb(34, 33, 33);
+            color: rgb(247, 247, 247);
+            cursor: pointer;
+            margin-left: -50px;
+
+        }
+        .b1:hover
+        {
+            background: rgb(82, 21, 139);
+            color: white;
+        } 
+    </style>
+<h1 style="margin-left: -3%;">List of Employee</h1><img style="margin-top: -7.5%;margin-left: 25%;" src="https://cdn-icons-png.flaticon.com/512/8915/8915802.png"width ="45px" height="45px" >
+<table style="margin-left: -4%;width: 108% ;background-color: whitesmoke;" border=2>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Salary</th>
+            <th>Department</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Mobile</th>
+            <th>Nationality</th>
+            <th>State</th>
+            <th>Date Of Birth</th>
+            <th>Gender</th>
+            <th>Account No</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Employee item in Model)
+        {
+            <tr>                
+                <td>@item.EmployeeID</td>
+                <td>@item.EmployeeName</td>
+                <td>@item.Age</td>
+                <td>@item.Salary</td>
+                <td>@item.Department</td>
+                <td>@item.Email</td>
+                <td>@item.Password</td>
+                <td>@item.MobileNumber</td>
+                <td>@item.Nationality</td>
+                <td>@item.State</td>
+                <td>@item.DateOfBirth</td>
+                <td>@item.Gender</td>
+                <td>@item.AccountNo</td>
+            </tr> 
+        }
+    </tbody>
+</table>
+<br>
+<form method="get" asp-controller="Admin" asp-action="Options">
+<button class="b1" type="submit">Go Back To Options</button>
+</form>

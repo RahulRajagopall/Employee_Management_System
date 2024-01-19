@@ -1,0 +1,62 @@
+@{
+    ViewData["Title"] = "User";
+    Layout="_LoginUser";
+}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.vertical-menu {
+  width: 200px;
+  margin-left: -8%;
+  margin-top: -1.95%;
+  background-color: rgb(29, 28, 28);
+  
+}
+
+.vertical-menu a {
+  background-color: rgb(29, 28, 28);
+  color: white;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+  text-align: center;
+  
+}
+
+.vertical-menu a:hover {
+  background-color:  #04AA6D;
+}
+
+.vertical-menu a.active {
+  background-color: #04AA6D;
+  color: white;
+  margin-top: 435px;
+}
+body {
+    background-image: url("https://wallpaperaccess.com/full/3342261.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+</style>
+</head>
+<body >
+<div class="vertical-menu">  
+  <a asp-controller="User" asp-action="Profile">View Profile</a>
+  <a asp-controller="User" asp-action="ViewTask">View Task</a>
+  <a asp-controller="User" asp-action="Mail">Mail To Admin</a>
+  <a asp-controller="User" asp-action="Complaint">Complaints</a>
+  <a asp-controller="User" asp-action="LogOut" class="active">LogOut</a>
+</div>
+</body>
+</html>
+<div style="max-height: 50px;width: 500px;height: 50px; border: 0.01px solid cyan;margin-top: -60%;margin-left: 82%;">
+<p>@TempData["Cookies"]</p>
+</div>
+<img style="margin-top: 6%;margin-left: 42%;" src="../images/new.png" width="700px" height="500px"/> 
+<img style="margin-top: -100%;margin-left: 8%;" src="../images/welcome5.png" width="500px" height="400px"/> 
+   <div  style="max-height: 40px;width: 300px;height: 40px; border: 0.01px solid transparent;margin-top: -1%;margin-right:150px;color:red;">
+    <p style="color: red;margin-top: 2%;margin-left:-8%";">@ViewBag.Message1</p>
+    </div>

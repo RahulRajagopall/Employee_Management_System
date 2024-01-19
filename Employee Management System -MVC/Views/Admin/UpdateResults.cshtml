@@ -1,0 +1,146 @@
+@model Employee
+@{
+    ViewData["Title"]="Update";
+    Layout="_Login";
+}
+<head>
+    <Style>
+        body{
+            overflow: hidden;
+        }
+        label
+        {
+            width: 15%;
+        }
+        .right label 
+        {
+            width:200px;
+        }
+      button
+        {   
+            width: 70px;
+            height: 35px;
+            background-color: rgb(31, 30, 30);
+            border-radius: 1em;
+            align-items: left;
+            flex-direction: row;
+            justify-content: left;
+            margin-left: 22%;
+            margin-top: -1.5%;            
+        }
+        button:hover 
+        {
+            background-color:rgb(82, 21, 139);
+            cursor: pointer;
+        }
+        .b1
+        {
+            display: block;
+            margin-left: 9em;
+            background-color: white;
+            height: 2em;
+            width: 6em;
+            border-radius: 1em;
+            margin-left: 20%;
+            margin-top: 10%;
+            background: rgb(34, 33, 33);
+            color: rgb(247, 247, 247);
+            cursor: pointer;
+            margin-left: 0%;
+            margin-top: 1%;
+        }
+        .b1:hover
+        {
+            background: rgb(68, 149, 204);
+            color: black;
+        }
+    </Style>
+</head>
+<h2>Update Employee</h2>
+<form method = "post">
+    <br>    
+    <div>
+         <p>
+        <label asp-for="ProfilePIC">Profile Picture </label>
+        <input name="ProfilePIC"  type="file" onchange="readURL(this)" accept="Image/*" required/>
+    </p>
+    <p>
+        <label asp-for="EmployeeID">Employee ID</label>
+        <input type="number"  asp-for="EmployeeID"placeholder="Employee ID" readonly/>
+    </p>
+    <p style="margin-left: 170px;color:red;">@ViewBag.Message</p>
+    <p>
+        <label asp-for="EmployeeName">Employee Name</label>
+        <input asp-for="EmployeeName" placeholder="Employee Name" pattern="^[A-Za-z.\s_-]+$" title="Must contain only uppercases and lowercases"  required/>
+    </p>
+    <p>
+        <label asp-for="Gender">Gender</label>
+        <select asp-for="Gender" >
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+    </p>
+    <p>
+        <label asp-for="Age" ></label>
+        <input asp-for="Age"  placeholder="Age"required/>
+    </p>
+    <p>
+        <label  asp-for="Salary">Salary</label>
+        <input type="number"  asp-for="Salary"placeholder="Salary"required/>
+    </p>
+    <p>
+        <label asp-for="Email"></label>
+        <input type="email" pattern=".+gmail\.com" asp-for="Email"placeholder="Email" title="Enter a valid Email ID"  required/>
+    </p>
+
+ 
+    </div>
+    <div class="right" style="margin-top: -26%;margin-left: 50%;">
+    <P>
+        <label asp-for="Password"></label>
+        <input type="password" name="Password" placeholder="Vicky@123##" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[#$!@@%&*?]).{8,}" title="Must contain atleast One Number,One Uppercase,One Lowercase and One Special Character,and have atleast 8 or more characters" required/>
+    </P>
+    <p>
+        <label asp-for="MobileNumber">Mobile Number</label>
+        <input  asp-for="MobileNumber" placeholder="Mobile Number"  pattern= "^[6-9][0-9]{9}$" title="Mobile Number must be valid"required/>
+    </p>
+   
+     <p>
+        <label asp-for="Nationality">Nationality</label>
+        <select asp-for="Nationality">
+            <option value="Indian">Indian</option>
+        </select>
+    </p>
+     <p>
+        <label asp-for="State">State</label>
+        <input asp-for="State" placeholder="Enter State"required/>
+    </p>
+    <p>
+        <label asp-for="DateOfBirth">Date Of Birth</label>
+        <input type="date" asp-for="DateOfBirth"placeholder="Enter Date Of Birth"required/>
+    </p>
+        <p>
+        <label asp-for="Department">Department</label>
+        <select asp-for="Department">
+            <option value="Development">Development</option>
+            <option value="Testing">Testing</option>
+            <option value="HR">HR</option>
+            <option value="Research">Research</option>
+        </select>
+    </p>
+    <p>
+        <label asp-for="AccountNo">Account Number</label>
+        <input asp-for="AccountNo"placeholder="Account Number" pattern="^[0-9]{12}$" title="Account number should contain only numbers and have exactly 12 digits" required/>
+    </p>
+    </p>
+    <p style="margin-left: 220px;color:red;">@ViewBag.Message1</p>
+    <p>
+    </div>
+    <br>
+    <br>
+    <p style="margin-top: 1%;">
+    <button style="margin-left: -5px;width: 90px;Height:35px;"><a style="color: white;text-decoration: none;" asp-action="Options">Go Back </a></button>
+    <button asp-controller="Admin" asp-action="UpdateResult" style="margin-left: 350px;color: white;" type="submit">Submit</button>
+    </p>  
+</form>
